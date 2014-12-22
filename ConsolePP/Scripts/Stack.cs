@@ -55,7 +55,10 @@ namespace ConsolePP
 							line = line.Substring( chr + 1 );
 							chr = line.IndexOf(')');
 							if( chr != -1 )
-								l = int.Parse( line.Substring(0, chr) );
+							{
+								if( !int.TryParse(line.Substring(0, chr), out l) )
+									l = 0;
+							}
 						}
 					}
 				}
